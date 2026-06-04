@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Community Event Portal</title>
+  <meta name="description" content="Community portal for events, registration, feedback, and local services." />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="mainHeader" class="site-header">
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://www.example.com/help/community-events" target="_blank" rel="noopener">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <section id="home" class="hero-card">
+      <h1>Welcome to the Local Community Event Portal</h1>
+      <p class="highlight">A friendly place for residents to discover events, register, and get local updates.</p>
+      <p class="special-offer">Special offer: Early registration for community workshops this week!</p>
+    </section>
+
+    <section id="events" class="event-card">
+      <h2>Upcoming Events</h2>
+      <p>Browse local activities, volunteer meetups, and family events in your area.</p>
+      <table class="event-table">
+        <caption>Community Event Gallery</caption>
+        <tr>
+          <td>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=400&q=80" alt="Community picnic" title="Community picnic" />
+            <p class="caption">City picnic at the park.</p>
+          </td>
+          <td>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=400&q=80" alt="Music festival" title="Music festival" />
+            <p class="caption">Evening music festival.</p>
+          </td>
+          <td>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=400&q=80" alt="Volunteer day" title="Volunteer day" />
+            <p class="caption">Community volunteer clean-up.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=400&q=80" alt="Craft fair" title="Craft fair" />
+            <p class="caption">Local craft fair.</p>
+          </td>
+          <td>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80" alt="School event" title="School event" />
+            <p class="caption">Family fun fair.</p>
+          </td>
+          <td>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=400&q=80" alt="Market day" title="Market day" />
+            <p class="caption">Neighborhood market event.</p>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="event-card">
+      <h2>Register for an Event</h2>
+      <form id="eventForm" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required autofocus />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="name@example.com" required />
+
+        <label for="eventDate">Date</label>
+        <input id="eventDate" name="eventDate" type="date" required />
+
+        <label for="eventType">Event Type</label>
+        <select id="eventType" name="eventType" required>
+          <option value="Workshop">Workshop</option>
+          <option value="Festival">Festival</option>
+          <option value="Volunteer">Volunteer</option>
+        </select>
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" placeholder="e.g. 9876543210" onblur="validatePhone(this)" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us what you need"></textarea>
+
+        <button type="submit">Register</button>
+        <button type="button" id="clearPrefs">Clear Preferences</button>
+        <p id="formMessage" class="feedback"></p>
+      </form>
+    </section>
+
+    <section class="event-card">
+      <h2>Feedback</h2>
+      <label for="feeSelect">Choose Event Fee</label>
+      <select id="feeSelect" onchange="showFee(this.value)">
+        <option value="0">Select fee</option>
+        <option value="Free">Free</option>
+        <option value="10">$10</option>
+        <option value="25">$25</option>
+      </select>
+      <p id="feeMessage"></p>
+      <textarea id="feedbackBox" rows="3" placeholder="Type your feedback here and press keys to count characters." onkeyup="countFeedback(this)"></textarea>
+      <p id="charCount">Characters: 0</p>
+      <button type="button" onclick="confirmAction()">Confirm Selection</button>
+      <img id="eventImage" class="event-image" src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=300&q=80" alt="Event image" ondblclick="enlargeImage(this)" />
+    </section>
+
+    <section class="event-card">
+      <h2>Video Invite</h2>
+      <video controls width="320" oncanplay="showVideoReady()">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p id="videoStatus"></p>
+    </section>
+
+    <section id="contact" class="event-card">
+      <h2>Contact</h2>
+      <p>For assistance, visit the community help desk or use the support form above.</p>
+      <button type="button" id="findNearby">Find Nearby Events</button>
+      <p id="geoOutput">Location status will appear here.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Community Event Portal</p>
+  </footer>
+</body>
+</html>

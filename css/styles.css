@@ -1,0 +1,157 @@
+/* Base reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body and page styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(rgba(255,255,255,0.9), rgba(240,248,255,0.95)),
+              url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+  color: #1f2937;
+}
+
+/* Header styles */
+.site-header,
+.site-footer {
+  background: linear-gradient(135deg, #0a66c2, #004a99);
+  color: #fff;
+  padding: 1rem;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav-menu a,
+.nav-menu a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-menu a:hover,
+.nav-menu a:active {
+  text-decoration: underline;
+}
+
+/* Main content styles */
+main {
+  padding: 1rem;
+}
+
+.hero-card,
+.event-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+#mainHeader {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  background: #e8f2ff;
+  padding: 0.4rem;
+  border-left: 4px solid #0a66c2;
+}
+
+/* Form and table styles */
+form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  padding: 0.55rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+button {
+  background: #0a66c2;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #084a94;
+}
+
+.event-table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+.event-table td,
+.event-table th {
+  border: 1px solid #cbd5e1;
+  padding: 0.5rem;
+}
+
+.event-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.gallery-img {
+  width: 100%;
+  border: 2px solid #0a66c2;
+  border-radius: 8px;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.special-offer {
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+.event-image {
+  max-width: 180px;
+  margin-top: 10px;
+  border: 2px solid #0a66c2;
+}
+
+/* Multi-column news section */
+.news-columns {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+  }
+
+  .event-table {
+    font-size: 0.9rem;
+  }
+
+  .gallery-img {
+    max-width: 100%;
+  }
+}
